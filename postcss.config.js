@@ -1,12 +1,12 @@
 const autoprefixer = require('autoprefixer')
-const px2remExclude = require('postcss-px2rem-exclude')
+const px2rem = require('postcss-plugin-px2rem')
 
 module.exports = {
   plugins: [
     autoprefixer,
-    // px2remExclude({
-    //   'remUnit': 75,
-    //   'exclude': /node_modules|folder_name/i,
-    // }),
+    px2rem({
+      'rootValue': 75,
+      'exclude': /node_modules|folder_name/i,
+    }),
   ],
 }
