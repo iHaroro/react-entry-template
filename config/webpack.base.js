@@ -1,10 +1,16 @@
 const path = require('path')
 const WebpackBar = require('webpackbar')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
-const { setEntry, setHtmlPlugin } = require('./webpack.util')
+const OptimizeCssAssetsWebpackPlugin = require('optimize-css-assets-webpack-plugin')
+const { CleanWebpackPlugin } = require('clean-webpack-plugin')
+const { setPageEntry, setHtmlWebpackPlugin } = require('./webpack.util')
+
+// console.log('entry', setPageEntry())
+// console.log('html plugins', setHtmlWebpackPlugin())
+// process.exit()
 
 module.exports = {
-  entry: setEntry,
+  entry: setPageEntry,
   output: {
     path: path.resolve(__dirname, '../dist'),
     filename: '[name]/index.js',
@@ -35,12 +41,24 @@ module.exports = {
     ],
   },
   plugins: [
+    new CleanWebpackPlugin(),
     new WebpackBar(),
-    ...setHtmlPlugin(),
+    ...setHtmlWebpackPlugin(),
     new MiniCssExtractPlugin({
       filename: '[name]/index.css',
     }),
   ],
+  optimization: {
+    minimize: true,
+    minimizer: [
+      new OptimizeCssAssetsWebpackPlugin({
+        cssProcessorOptions: {
+          safe: true,
+          discardComments: { removeAll: true }, // 对CSS文件中注释的处理：移除注释
+        },
+      }),
+    ],
+  },
   resolve: {
     extensions: ['.js', '.jsx', '.json'],
   },

@@ -2,8 +2,9 @@ const path = require('path')
 const glob = require('glob')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 
-function setEntry () {
-  const files = glob.sync('./src/modules/**/index.jsx')
+// 入口配置
+function setPageEntry () {
+  const files = glob.sync('./src/pages/**/index.jsx')
   const entry = {}
   files.forEach(file => {
     const ret = file.match(/^\.\/src\/pages\/(\S*)\/index\.jsx$/)
@@ -22,19 +23,21 @@ function setEntry () {
   return entry
 }
 
+// 获取默认模板HTML
 function getTemplate (name) {
-  const files = glob.sync(`./src/modules/${name}/index.html`)
+  const files = glob.sync(`./src/pages/${name}/index.html`)
   if (files.length > 0) {
     return files[0]
   }
-  return './src/template.html'
+  return './public/template.html'
 }
 
-function setHtmlPlugin () {
-  const files = glob.sync('./src/modules/**/index.jsx')
+// 设置HTML入口plugin
+function setHtmlWebpackPlugin () {
+  const files = glob.sync('./src/pages/**/index.jsx')
   const options = []
   files.forEach(file => {
-    const ret = file.match(/^\.\/src\/modules\/(\S*)\/index\.jsx$/)
+    const ret = file.match(/^\.\/src\/pages\/(\S*)\/index\.jsx$/)
     if (ret) {
       const name = ret[1]
       options.push(new HtmlWebpackPlugin({
@@ -49,6 +52,6 @@ function setHtmlPlugin () {
 }
 
 module.exports = {
-  setEntry,
-  setHtmlPlugin,
+  setPageEntry,
+  setHtmlWebpackPlugin,
 }
