@@ -1,7 +1,10 @@
 body {
   color: green;
+  background: red;
 
   div {
     display: flex;
+    width: 375px;
+    background: steelblue;
   }
 }
