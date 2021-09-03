@@ -64,12 +64,6 @@ module.exports = {
     new MiniCssExtractPlugin({
       filename: '[name]/index.css',
     }),
-    // 向浏览器环境注入环境变量
-    new webpack.DefinePlugin({
-      'process.env': {
-        NODE_ENV: `'${process.env.NODE_ENV}'`,
-      },
-    }),
   ],
   optimization: {
     minimize: true,
