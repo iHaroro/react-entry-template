@@ -1,4 +1,5 @@
 const path = require('path')
+const webpack = require('webpack')
 const WebpackBar = require('webpackbar')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const OptimizeCssAssetsWebpackPlugin = require('optimize-css-assets-webpack-plugin')
@@ -20,7 +21,6 @@ module.exports = {
       {
         test: /\.(sa|sc|c)ss$/,
         use: [
-          // 'style-loader',
           MiniCssExtractPlugin.loader,
           {
             loader: 'css-loader',
@@ -28,6 +28,7 @@ module.exports = {
               importLoaders: 2,
             },
           },
+          'style-loader',
           'postcss-loader',
           'sass-loader',
           {
@@ -60,6 +61,12 @@ module.exports = {
     new MiniCssExtractPlugin({
       filename: '[name]/index.css',
     }),
+    // 向浏览器环境注入环境变量
+    new webpack.DefinePlugin({
+      'process.env': {
+        NODE_ENV: `'${process.env.NODE_ENV}'`,
+      },
+    }),
   ],
   optimization: {
     minimize: true,
@@ -74,5 +81,9 @@ module.exports = {
   },
   resolve: {
     extensions: ['.js', '.jsx', '.json'],
+    alias: {
+      '@': path.join(__dirname, '..', 'src'),
+      process: 'process/browser',
+    },
   },
 }

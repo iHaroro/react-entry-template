@@ -1,11 +1,11 @@
 const { merge } = require('webpack-merge')
 const path = require('path')
+const webpack = require('webpack')
 const base = require('./webpack.base')
 
 module.exports = merge(base, {
   mode: 'development',
   devtool: 'inline-source-map',
-  target: 'web',
   devServer: {
     open: false, // 自动打开browser
     contentBase: path.join(__dirname, './dist'),
