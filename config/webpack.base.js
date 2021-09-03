@@ -6,6 +6,8 @@ const OptimizeCssAssetsWebpackPlugin = require('optimize-css-assets-webpack-plug
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const { getPageEntry, getHtmlPluginEntry } = require('./webpack.util')
 
+console.log(process.env.NODE_ENV)
+
 module.exports = {
   entry: getPageEntry,
   output: {
@@ -61,6 +63,12 @@ module.exports = {
     new CleanWebpackPlugin(),
     new WebpackBar(),
     ...getHtmlPluginEntry(),
+    // 向浏览器环境注入环境变量
+    new webpack.DefinePlugin({
+      'process.env': {
+        NODE_ENV: JSON.stringify(process.env.NODE_ENV),
+      },
+    }),
     new MiniCssExtractPlugin({
       filename: '[name]/index.css',
     }),
