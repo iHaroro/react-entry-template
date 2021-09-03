@@ -28,7 +28,7 @@ module.exports = {
            * 3. style-loader 将 css 插入到HTML中的<style>标签中
            */
           // 'style-loader', // 将 JS 字符串生成为 style 节点
-          MiniCssExtractPlugin.loader, // 替换style-loader
+          MiniCssExtractPlugin.loader, // 不可与style-loader同时使用
           {
             loader: 'css-loader', // 将 CSS 转化成 CommonJS 模块
             options: {
@@ -41,7 +41,9 @@ module.exports = {
             // 全局sass资源
             loader: 'sass-resources-loader',
             options: {
-              resources: ['./src/assets/style/reset.scss'],
+              resources: [
+                path.resolve(__dirname, '../', 'src/assets/styles/global.scss'),
+              ],
             },
           },
         ],
