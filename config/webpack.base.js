@@ -21,21 +21,26 @@ module.exports = {
       {
         test: /\.(sa|sc|c)ss$/,
         use: [
-          MiniCssExtractPlugin.loader,
+          /**
+           * loader 是从右到左执行，顺序不能颠倒
+           * 1. 最先执行 sass-loader ，将 sass 文件转为css
+           * 2. css-loader 将转换后的css文件转为 js模块
+           * 3. style-loader 将 css 插入到HTML中的<style>标签中
+           */
+          // 'style-loader', // 将 JS 字符串生成为 style 节点
+          MiniCssExtractPlugin.loader, // 替换style-loader
           {
-            loader: 'css-loader',
+            loader: 'css-loader', // 将 CSS 转化成 CommonJS 模块
             options: {
               importLoaders: 2,
             },
           },
-          'style-loader',
-          'postcss-loader',
-          'sass-loader',
+          'postcss-loader', // 处理兼容，px2rem等
+          'sass-loader', // 将 Sass 编译成 CSS
           {
-            // 这行的意思是引入加载器 sass-resources-loader
+            // 全局sass资源
             loader: 'sass-resources-loader',
             options: {
-              // 这里是需要引入全局的资源文件，它可以是一个字符串或者是一个数组， 通常用数组去代替。
               resources: ['./src/assets/style/reset.scss'],
             },
           },
