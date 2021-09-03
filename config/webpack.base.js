@@ -4,14 +4,10 @@ const WebpackBar = require('webpackbar')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const OptimizeCssAssetsWebpackPlugin = require('optimize-css-assets-webpack-plugin')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
-const { setPageEntry, setHtmlWebpackPlugin } = require('./webpack.util')
-
-// console.log('entry', setPageEntry())
-// console.log('html plugins', setHtmlWebpackPlugin())
-// process.exit()
+const { getPageEntry, getHtmlPluginEntry } = require('./webpack.util')
 
 module.exports = {
-  entry: setPageEntry,
+  entry: getPageEntry,
   output: {
     path: path.resolve(__dirname, '../dist'),
     filename: '[name]/index.js',
@@ -49,7 +45,7 @@ module.exports = {
         ],
       },
       {
-        test: /\.jsx?$/,
+        test: /\.(jsx|js)?$/,
         exclude: /(node_modules|bower_components)/,
         use: {
           loader: 'babel-loader',
@@ -64,7 +60,7 @@ module.exports = {
   plugins: [
     new CleanWebpackPlugin(),
     new WebpackBar(),
-    ...setHtmlWebpackPlugin(),
+    ...getHtmlPluginEntry(),
     new MiniCssExtractPlugin({
       filename: '[name]/index.css',
     }),

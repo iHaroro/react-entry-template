@@ -1,8 +1,7 @@
 import React from 'react'
+import './App.scss'
 
 function App () {
-  console.log(process.env)
-
   return (
     <div id="page2">
       我是PAGE2，Hello World
