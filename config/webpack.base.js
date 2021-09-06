@@ -2,11 +2,9 @@ const path = require('path')
 const webpack = require('webpack')
 const WebpackBar = require('webpackbar')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
-const OptimizeCssAssetsWebpackPlugin = require('optimize-css-assets-webpack-plugin')
+const CssMinimizerPlugin = require('css-minimizer-webpack-plugin') // 对CSS进行压缩插件
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const { getPageEntry, getHtmlPluginEntry } = require('./webpack.util')
-
-console.log(process.env.NODE_ENV)
 
 module.exports = {
   entry: getPageEntry,
@@ -47,21 +45,28 @@ module.exports = {
         ],
       },
       {
+        test: /\.jsx?$/,
+        enforce: 'pre',
+        loader: 'eslint-loader',
+        include: /src/,
+      },
+      {
         test: /\.(jsx|js)?$/,
         exclude: /(node_modules|bower_components)/,
-        use: {
-          loader: 'babel-loader',
-          options: {
-            presets: ['@babel/preset-react', '@babel/preset-env'],
-            plugins: ['@babel/plugin-proposal-class-properties'],
+        use: [
+          {
+            loader: 'babel-loader',
+            options: {
+              presets: ['@babel/preset-react', '@babel/preset-env'],
+              plugins: ['@babel/plugin-proposal-class-properties'],
+            },
           },
-        },
+        ],
       },
     ],
   },
   plugins: [
     new CleanWebpackPlugin(),
-    new WebpackBar(),
     ...getHtmlPluginEntry(),
     // 向浏览器环境注入环境变量
     new webpack.DefinePlugin({
@@ -72,16 +77,14 @@ module.exports = {
     new MiniCssExtractPlugin({
       filename: '[name]/index.css',
     }),
+    new WebpackBar({
+      name: 'React',
+    }),
   ],
   optimization: {
     minimize: true,
     minimizer: [
-      new OptimizeCssAssetsWebpackPlugin({
-        cssProcessorOptions: {
-          safe: true,
-          discardComments: { removeAll: true }, // 对CSS文件中注释的处理：移除注释
-        },
-      }),
+      new CssMinimizerPlugin(),
     ],
   },
   resolve: {

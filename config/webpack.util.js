@@ -64,7 +64,7 @@ function getPageEntry () {
   // 添加react公共依赖
   entrys['vendors'] = {
     import: ['react', 'react-dom'],
-    filename: 'javascript/[name].js',
+    filename: 'js/[name].js',
   }
   return entrys
 }

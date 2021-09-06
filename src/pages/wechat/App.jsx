@@ -1,9 +1,9 @@
 import React from 'react'
 
-function App() {
+function App () {
   return (
     <div id="page1">
-      我是PAGE1，Hello World
+      TIKTOK PROJECT PAGE, HELLO WORLD!
     </div>
   )
 }
