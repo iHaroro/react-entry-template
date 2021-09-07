@@ -42,5 +42,8 @@ module.exports = {
       'version': 'detect',
     },
   },
+  'rules': {
+    'no-case-declarations': 'off',
+  },
 }
 

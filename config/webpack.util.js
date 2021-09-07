@@ -15,7 +15,7 @@ const devPages = []
  * @param {string?} entryName 入口名称（模块名），不传默认获取全部模块对应类型（type）的文件数组
  * @returns {array} 文件数组
  **/
-const getEntryFileByType = (type, entryName) => glob.sync(`${PAGES_PATH}/${entryName || '**'}/index.${type}*`)
+const getEntryFileByType = (type, entryName) => glob.sync(`${PAGES_PATH}/${entryName || '*'}/index.${type}*`)
 
 /**
  * @function 根据URL获取入口名称
@@ -34,19 +34,25 @@ const pathMatchEntryName = path => {
  * @returns {any}
  **/
 const createHtmlPlugin = (entryName, templateFile) => new HtmlWebpackPlugin({
-  filename: `${entryName}/index.html`, // 生成的html模板文件名
+  // filename: `${entryName}/index.html`, // 生成的html模板文件名
+  filename: `${entryName}.html`, // 生成的html模板文件名
   template: templateFile || TEMP_HTML_PATH, // 模板html路径
-  chunks: ['vendors', entryName, '[name]/index.css'],
+  publicPath: '../',
+  chunks: [
+    'vendors',
+    entryName,
+    '[name]/index.css',
+  ],
   favicon: path.resolve(__dirname, '../public/favicon.ico'),
 })
 
 // 获取入口配置
 function getPageEntry () {
-  const entrys = {}
+  let entry = {}
   if (isDev && devPages.length) { // 开发环境，按需编译
     devPages.forEach(entryName => {
       const entryFile = getEntryFileByType('js', entryName)[0]
-      entrys[entryName] = {
+      entry[entryName] = {
         import: entryFile,
         dependOn: 'vendors',
       }
@@ -55,18 +61,18 @@ function getPageEntry () {
     const allEntryFiles = getEntryFileByType('js')
     allEntryFiles.forEach(entryFile => {
       const entryName = pathMatchEntryName(entryFile)
-      entrys[entryName] = {
+      entry[entryName] = {
         import: entryFile,
         dependOn: 'vendors',
       }
     })
   }
   // 添加react公共依赖
-  entrys['vendors'] = {
+  entry['vendors'] = {
     import: ['react', 'react-dom'],
     filename: 'js/[name].js',
   }
-  return entrys
+  return entry
 }
 
 // 获取HTML模板创建

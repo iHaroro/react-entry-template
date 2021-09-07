@@ -1,15 +1,21 @@
+const path = require('path')
+const base = require('./webpack.config')
 const { merge } = require('webpack-merge')
-const base = require('./webpack.base')
 
 module.exports = merge(base, {
   mode: 'development',
   devtool: 'inline-source-map',
   stats: 'errors-only',
   devServer: {
-    open: ['demo'],
+    // open: ['demo'],
     historyApiFallback: true,
+    // historyApiFallback: {
+    //   rewrites: [
+    //     { from: /^\/*.html/, to: '/*' },
+    //   ],
+    // },
     hot: true, // 热更新,
-    port: 'auto',
+    port: 8000,
     client: {
       logging: 'none',
       progress: true,
@@ -17,6 +23,10 @@ module.exports = merge(base, {
         errors: true,
         warnings: false,
       },
+    },
+    static: {
+      directory: path.resolve(__dirname, '..', 'public'),
+      publicPath: path.resolve(__dirname, '..', 'public'),
     },
     // proxy: {
     //   '/api': {
