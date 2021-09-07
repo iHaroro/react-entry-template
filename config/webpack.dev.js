@@ -1,11 +1,23 @@
 const path = require('path')
 const base = require('./webpack.config')
+const webpack = require('webpack')
 const { merge } = require('webpack-merge')
+const devEnvs = require('./config/env.dev')
 
 module.exports = merge(base, {
   mode: 'development',
   devtool: 'inline-source-map',
   stats: 'errors-only',
+  plugins: [
+    // 向浏览器环境注入环境变量
+    new webpack.DefinePlugin({
+      'process.env': {
+        NODE_ENV: devEnvs.NODE_ENV,
+        BASE_API: devEnvs.BASE_API,
+        BASE_PATH: devEnvs.BASE_PATH,
+      },
+    }),
+  ],
   devServer: {
     // open: ['demo'],
     historyApiFallback: true,

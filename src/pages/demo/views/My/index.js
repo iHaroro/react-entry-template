@@ -8,7 +8,6 @@ const My = (props) => {
 
   return (
     <div>
-      <Link to="/">Home</Link>
       {
         id
           ? (<Link to="/my">
@@ -20,6 +19,9 @@ const My = (props) => {
       }
       <p>My</p>
       {id && <p>id: {id}</p>}
+      <Link to="/">
+        <button>Home</button>
+      </Link>
     </div>
   )
 }

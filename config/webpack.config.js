@@ -1,5 +1,4 @@
 const path = require('path')
-const webpack = require('webpack')
 const WebpackBar = require('webpackbar')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin') // 对CSS进行压缩插件
@@ -68,12 +67,6 @@ module.exports = {
   plugins: [
     new CleanWebpackPlugin(),
     ...getHtmlPluginEntry(),
-    // 向浏览器环境注入环境变量
-    new webpack.DefinePlugin({
-      'process.env': {
-        NODE_ENV: JSON.stringify(process.env.NODE_ENV),
-      },
-    }),
     new MiniCssExtractPlugin({
       filename: '[name]/index.css',
     }),
