@@ -32,7 +32,7 @@ module.exports = merge(base, {
       logging: 'none',
       progress: true,
       overlay: {
-        errors: true,
+        errors: false,
         warnings: false,
       },
     },

@@ -1,10 +1,19 @@
-import React from 'react'
+import React  from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
+import { demoApiServer } from '@/api/demo'
 import './index.scss'
 
 const My = (props) => {
+
   const id = props.match.params.id
+  demoApiServer().then(res => {
+    console.log('success', res)
+  }).catch(err => {
+    console.log('error', err)
+  }).finally(() => {
+    console.log('finally')
+  })
 
   return (
     <div>
