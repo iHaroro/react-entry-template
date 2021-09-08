@@ -1,9 +1,9 @@
 {
-  "name": "react-entry-template",
+  "name": "webpack-multiple-entry-template",
   "version": "0.0.1",
   "author": "Haroro",
   "private": true,
-  "description": "",
+  "description": "Webpack多入口项目模板",
   "main": "index.js",
   "scripts": {
     "dev": "cross-env NODE_ENV=development webpack serve --config config/webpack.dev.js",
