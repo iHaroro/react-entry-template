@@ -1,15 +1,14 @@
 const path = require('path')
-const WebpackBar = require('webpackbar')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
-const CssMinimizerPlugin = require('css-minimizer-webpack-plugin') // 对CSS进行压缩插件
-const {CleanWebpackPlugin} = require('clean-webpack-plugin')
-const {getPageEntry, getHtmlPluginEntry} = require('./webpack.util')
+const { CleanWebpackPlugin } = require('clean-webpack-plugin')
+const { getPageEntry, getHtmlPluginEntry } = require('./webpack.util')
 
 module.exports = {
   entry: getPageEntry,
   output: {
     path: path.resolve(__dirname, '../dist'),
     filename: '[name]/index.js',
+    chunkFilename: '[name]/[name].js',
   },
   module: {
     rules: [
@@ -55,21 +54,6 @@ module.exports = {
         use: [
           {
             loader: 'babel-loader',
-            options: {
-              presets: ['@babel/preset-react', '@babel/preset-env'],
-              plugins: [
-                '@babel/plugin-proposal-class-properties',
-                ['import', {
-                  libraryName: 'zarm',
-                  style: true, // or 'css'
-                }, 'zarm'],
-                ['import', {
-                  libraryName: 'ahooks',
-                  camel2DashComponentName: false, // 是否需要驼峰转短线
-                  camel2UnderlineComponentName: false, // 是否需要驼峰转下划线
-                }, 'ahooks']
-              ],
-            },
           },
         ],
       },
@@ -81,16 +65,7 @@ module.exports = {
     new MiniCssExtractPlugin({
       filename: '[name]/index.css',
     }),
-    new WebpackBar({
-      name: 'React',
-    }),
   ],
-  optimization: {
-    minimize: true,
-    minimizer: [
-      new CssMinimizerPlugin(),
-    ],
-  },
   resolve: {
     extensions: ['.js', '.jsx', '.json'],
     alias: {

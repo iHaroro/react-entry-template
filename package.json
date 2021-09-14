@@ -1,18 +1,19 @@
 {
-  "name": "webpack-multiple-entry-template",
+  "name": "react-entry-template",
   "version": "0.0.1",
   "author": "Haroro",
   "private": true,
-  "description": "Webpack多入口项目模板",
+  "description": "",
   "main": "index.js",
   "scripts": {
     "dev": "cross-env NODE_ENV=development webpack serve --config config/webpack.dev.js",
-    "build:test": "cross-env NODE_ENV=development webpack --config config/webpack.dev.js",
+    "build:test": "cross-env NODE_ENV=development webpack --config config/webpack.prod.js",
     "build:pord": "cross-env NODE_ENV=production webpack --config config/webpack.prod.js"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",
     "@babel/plugin-proposal-class-properties": "^7.12.1",
+    "@babel/plugin-transform-runtime": "^7.15.0",
     "@babel/preset-env": "^7.12.7",
     "@babel/preset-react": "^7.12.7",
     "autoprefixer": "^10.3.3",
@@ -41,7 +42,7 @@
     "sass-loader": "^10.1.0",
     "sass-resources-loader": "^2.2.4",
     "style-loader": "^2.0.0",
-    "uglifyjs-webpack-plugin": "^2.2.0",
+    "terser-webpack-plugin": "^5.2.4",
     "webpack": "^5.51.1",
     "webpack-cli": "^4.8.0",
     "webpack-dev-server": "^4.1.0",

@@ -44,6 +44,7 @@ module.exports = {
   },
   'rules': {
     'no-case-declarations': 'off',
+    'no-debugger': 'off',
   },
 }
 
