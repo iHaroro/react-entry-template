@@ -29,7 +29,7 @@ module.exports = merge(base, {
     //   ],
     // },
     hot: true, // 热更新,
-    port: 8000,
+    port: 'auto',
     client: {
       logging: 'none',
       progress: true,
