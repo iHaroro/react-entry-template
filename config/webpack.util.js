@@ -9,6 +9,10 @@ const devPages = []
 // const devPages = ['web', 'wechat']
 // const devPages = ['web', 'wechat', 'tiktok']
 
+// 通用依赖
+const COMMON_VENDORS = ['react', 'react-dom']
+const COMMON_VENDORS_FILENAME = 'vendors'
+
 /**
  * @function 获取入口文件html，js
  * @param {string} type 'html'|'js'
@@ -39,12 +43,20 @@ const createHtmlPlugin = (entryName, templateFile) => new HtmlWebpackPlugin({
   template: templateFile || TEMP_HTML_PATH, // 模板html路径
   publicPath: '../',
   chunks: [
-    'vendors',
+    COMMON_VENDORS_FILENAME,
     entryName,
     '[name]/index.css',
   ],
   favicon: path.resolve(__dirname, '../public/favicon.ico'),
 })
+
+function getCommonEntryOption (entryFile) {
+  let option = {
+    import: entryFile,
+  }
+  COMMON_VENDORS.length && (option.dependOn = COMMON_VENDORS_FILENAME)
+  return option
+}
 
 // 获取入口配置
 function getPageEntry () {
@@ -52,24 +64,18 @@ function getPageEntry () {
   if (isDev && devPages.length) { // 开发环境，按需编译
     devPages.forEach(entryName => {
       const entryFile = getEntryFileByType('js', entryName)[0]
-      entry[entryName] = {
-        import: entryFile,
-        dependOn: 'vendors',
-      }
+      entry[entryName] = getCommonEntryOption(entryFile)
     })
   } else { // 默认编译全部
     const allEntryFiles = getEntryFileByType('js')
     allEntryFiles.forEach(entryFile => {
       const entryName = pathMatchEntryName(entryFile)
-      entry[entryName] = {
-        import: entryFile,
-        dependOn: 'vendors',
-      }
+      entry[entryName] = getCommonEntryOption(entryFile)
     })
   }
   // 添加react公共依赖
-  entry['vendors'] = {
-    import: ['react', 'react-dom'],
+  entry[COMMON_VENDORS_FILENAME] = {
+    import: COMMON_VENDORS,
     filename: 'js/[name].js',
   }
   return entry

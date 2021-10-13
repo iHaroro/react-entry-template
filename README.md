@@ -11,7 +11,9 @@
 
 ## 关于多入口配置
 
-多入口配置路径在 `config/webpack.utils.js` 中的 `devPages` 配置项，开发阶段配置空数组则会编译 `src/pages` 目录下全部入口模块。
+多入口配置路径在 `config/webpack.utils.js` 中的 `devPages` 配置项，开发阶段配置空数组则会编译 `src/pages` 目录下全部入口模块。 将`react`、`react-dom`
+
+通用的依赖提取出为vendor.js，如果项目不依赖`react`，或者为其他如`vue`的依赖可修改vendors.js依赖
 
 因此建议在开发阶段仅配置需要开发的模块，以提升编译效率。
 
