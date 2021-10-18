@@ -1,7 +1,7 @@
 @charset "utf-8";
 html {
-    background-color: #fff;
-    color: #000;
+  background-color: #ffffff;
+  color: #000000;
 }
 
 body,
@@ -28,8 +28,8 @@ th,
 td,
 pre,
 xmp {
-    margin: 0;
-    padding: 0
+  margin: 0;
+  padding: 0
 }
 
 body,
@@ -43,8 +43,8 @@ tt,
 code,
 kbd,
 samp {
-    line-height: 1.5;
-    font-family: tahoma, arial, "Hiragino Sans GB", simsun, sans-serif
+  line-height: 1.5;
+  font-family: tahoma, arial, "Hiragino Sans GB", simsun, sans-serif
 }
 
 h1,
@@ -59,7 +59,7 @@ input,
 textarea,
 button,
 select {
-    font-size: 100%
+  font-size: 100%
 }
 
 h1,
@@ -68,7 +68,7 @@ h3,
 h4,
 h5,
 h6 {
-    font-family: tahoma, arial, "Hiragino Sans GB", "微软雅黑", simsun, sans-serif
+  font-family: tahoma, arial, "Hiragino Sans GB", "微软雅黑", simsun, sans-serif
 }
 
 h1,
@@ -79,7 +79,7 @@ h5,
 h6,
 b,
 strong {
-    font-weight: normal
+  font-weight: normal
 }
 
 address,
@@ -89,29 +89,29 @@ em,
 i,
 optgroup,
 var {
-    font-style: normal
+  font-style: normal
 }
 
 table {
-    border-collapse: collapse;
-    border-spacing: 0;
-    text-align: left
+  border-collapse: collapse;
+  border-spacing: 0;
+  text-align: left
 }
 
 caption,
 th {
-    text-align: inherit
+  text-align: inherit
 }
 
 ul,
 ol,
 menu {
-    list-style: none
+  list-style: none
 }
 
 fieldset,
 img {
-    border: 0
+  border: 0
 }
 
 img,
@@ -120,7 +120,7 @@ input,
 textarea,
 button,
 select {
-    vertical-align: middle
+  vertical-align: middle
 }
 
 article,
@@ -134,19 +134,19 @@ figcaption,
 hgroup,
 details,
 menu {
-    display: block
+  display: block
 }
 
 blockquote:before,
 blockquote:after,
 q:before,
 q:after {
-    content: "\0020"
+  content: "\0020"
 }
 
 textarea {
-    overflow: auto;
-    resize: vertical
+  overflow: auto;
+  resize: vertical
 }
 
 input,
@@ -154,18 +154,18 @@ textarea,
 button,
 select,
 a {
-    outline: 0 none;
-    border: none;
+  outline: 0 none;
+  border: none;
 }
 
 button::-moz-focus-inner,
 input::-moz-focus-inner {
-    padding: 0;
-    border: 0
+  padding: 0;
+  border: 0
 }
 
 mark {
-    background-color: transparent
+  background-color: transparent
 }
 
 a,
@@ -173,30 +173,33 @@ ins,
 s,
 u,
 del {
-    text-decoration: none
+  text-decoration: none
 }
 
 sup,
 sub {
-    vertical-align: baseline
+  vertical-align: baseline
 }
 
 html {
-    overflow-x: hidden;
-    height: 100%;
-    -webkit-tap-highlight-color: transparent;
+  overflow-x: hidden;
+  min-height: 100vh;
+  -webkit-tap-highlight-color: transparent;
 }
 
 body {
-    // font-family: Arial, "Microsoft Yahei", "Helvetica Neue", Helvetica, sans-serif;
-    font-family: -apple-system-font, sans-serif;
-    color: #333;
-    -webkit-text-size-adjust: none;
+  font-family: -apple-system-font, sans-serif;
+  color: #333333;
+  width: 100%;
+  min-height: 100vh;
+  -webkit-text-size-adjust: none;
 }
+
 input {
-    font-family: -apple-system-font, sans-serif;
+  font-family: -apple-system-font, sans-serif;
 }
+
 body .van-toast {
-    font-size: 28px !important;
-    line-height: normal;
+  font-size: 28px !important;
+  line-height: normal;
 }
