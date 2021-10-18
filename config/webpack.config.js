@@ -7,8 +7,8 @@ module.exports = {
   entry: getPageEntry,
   output: {
     path: path.resolve(__dirname, '../dist'),
-    filename: '[name]/index.js',
-    chunkFilename: '[name]/[name].js',
+    filename: '[name]/index.[chunkhash].js', // filename 指列在 entry 中，打包后输出的文件的名称
+    chunkFilename: '[name]/[name].[chunkhash].js', // chunkFilename 指未列在 entry 中，却又需要被打包出来的文件的名称
   },
   module: {
     rules: [
@@ -63,7 +63,7 @@ module.exports = {
     new CleanWebpackPlugin(),
     ...getHtmlPluginEntry(),
     new MiniCssExtractPlugin({
-      filename: '[name]/index.css',
+      filename: '[name]/index.[contenthash].css',
     }),
   ],
   resolve: {

@@ -37,19 +37,22 @@ const pathMatchEntryName = path => {
  * @param {string} templateFile html模板名称
  * @returns {any}
  **/
-const createHtmlPlugin = (entryName, templateFile) => new HtmlWebpackPlugin({
-  // filename: `${entryName}/index.html`, // 生成的html模板文件名
-  filename: `${entryName}.html`, // 生成的html模板文件名
-  template: templateFile || TEMP_HTML_PATH, // 模板html路径
-  publicPath: '../',
-  chunks: [
-    COMMON_VENDORS_FILENAME,
-    entryName,
-    '[name]/index.css',
-  ],
-  favicon: path.resolve(__dirname, '../public/favicon.ico'),
-})
+const createHtmlPlugin = (entryName, templateFile) => {
+  return new HtmlWebpackPlugin({
+    // filename: `${entryName}/index.html`, // 生成的html模板文件名
+    filename: `${entryName}.html`, // 生成的html模板文件名
+    template: templateFile || TEMP_HTML_PATH, // 模板html路径
+    publicPath: '../',
+    chunks: [
+      COMMON_VENDORS_FILENAME,
+      entryName,
+      '[name]/index.css',
+    ],
+    favicon: path.resolve(__dirname, '../public/favicon.ico'),
+  })
+}
 
+// 处理公共模块配置
 function getCommonEntryOption (entryFile) {
   let option = {
     import: entryFile,
@@ -76,7 +79,7 @@ function getPageEntry () {
   // 添加react公共依赖
   entry[COMMON_VENDORS_FILENAME] = {
     import: COMMON_VENDORS,
-    filename: 'js/[name].js',
+    filename: 'js/[name].[chunkhash].js', // 如果不经常升级通用依赖，可以不增加chunk hash
   }
   return entry
 }
