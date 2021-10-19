@@ -1,10 +1,23 @@
 {
   "name": "react-entry-template",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "author": "Haroro",
   "private": true,
-  "description": "",
+  "description": "React.v17 + Webpack.v5 多入口H5项目模板",
   "main": "index.js",
+  "license": "MIT",
+  "keywords": [
+    "H5",
+    "react",
+    "react 17",
+    "webpack",
+    "webpack 5",
+    "haroro-cli",
+    "multiple entry",
+    "多入口",
+    "template",
+    "模板"
+  ],
   "scripts": {
     "dev": "cross-env NODE_ENV=development webpack serve --config config/webpack.dev.js",
     "build:test": "cross-env NODE_ENV=development webpack --config config/webpack.prod.js",

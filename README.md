@@ -1,4 +1,4 @@
-# React.v17 + Webpack.v5 多路口 H5 项目模板
+# React.v17 + Webpack.v5 多入口 H5 项目模板
 
 ## 项目的基础处理方案
 
