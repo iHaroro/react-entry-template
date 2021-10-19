@@ -1,3 +1,6 @@
+/**
+ * @description 请在这里修改你的生产配置
+ */
 const path = require('path')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')

@@ -1,3 +1,6 @@
+/**
+ * @description 请在这里修改你的开发配置de's
+ */
 const path = require('path')
 const base = require('./webpack.config')
 const webpack = require('webpack')
