@@ -55,6 +55,7 @@
     "sass-loader": "^10.1.0",
     "sass-resources-loader": "^2.2.4",
     "style-loader": "^2.0.0",
+    "url-loader": "^4.1.1",
     "terser-webpack-plugin": "^5.2.4",
     "webpack": "^5.51.1",
     "webpack-cli": "^4.8.0",

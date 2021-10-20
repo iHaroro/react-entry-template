@@ -42,7 +42,7 @@ const createHtmlPlugin = (entryName, templateFile) => {
     // filename: `${entryName}/index.html`, // 生成的html模板文件名
     filename: `${entryName}.html`, // 生成的html模板文件名
     template: templateFile || TEMP_HTML_PATH, // 模板html路径
-    publicPath: '../',
+    publicPath: './',
     chunks: [
       COMMON_VENDORS_FILENAME,
       entryName,

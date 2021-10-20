@@ -60,6 +60,39 @@ module.exports = {
           },
         ],
       },
+      {
+        test: /\.(png|jpg|jpe?g|gif|svg)(\?.*)?$/,
+        use: {
+          loader: 'url-loader',
+          options: {
+            limit: 10000,
+            name: 'img/[name].[hash:7].[ext]',
+            esModule: false,
+          }
+        }
+      },
+      {
+        test: /\.(mp4|webm|ogg|mp3|wav|flac|aac)(\?.*)?$/,
+        use: {
+          loader: 'url-loader',
+          options: {
+            limit: 10000,
+            name: 'video/[name].[hash:7].[ext]',
+            esModule: false,
+          }
+        }
+      },
+      {
+        test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
+        use: {
+          loader: 'url-loader',
+          options: {
+            limit: 10000,
+            name: 'font/[name].[hash:7].[ext]',
+            esModule: false,
+          }
+        }
+      }
     ],
   },
   plugins: [
