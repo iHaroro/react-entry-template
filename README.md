@@ -21,7 +21,21 @@
 
 `devPages`: `string[]` 参数为 `src/pages` 目录下的每个独立的 react 项目模块名（`src/pages/***` 文件夹）。
 
-### redux 采用 ducks 模式
+### 项目启动相关
+
+```bash
+yarn
+yarn run dev
+```
+
+项目启动访问地址：`localhost:8080/[moduleName].html/#/[route]`
+
+|字段|描述|
+|:---:|:---:|
+|moduleName|项目模块名，也就是项目 src/pages/xxx，xxx位置对于moduleName|
+|route|项目模块对于的路由|
+
+## redux 采用 ducks 模式
 
 因为每个redux的模块都是按照功能性去划分，而且每次添加`actionTypes`、`actions`、`reducer`这样的组合。
 
@@ -62,7 +76,7 @@ export function increment () {
 
 ```
 
-#### redux需要遵循以下代码风格
+### redux需要遵循以下代码风格
 
 - `reducer` 函数必须用 `export default` 输出名为 `reducer` 的函数
   ```javascript
