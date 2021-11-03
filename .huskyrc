@@ -1,5 +1,5 @@
 {
   "hooks": {
-    "pre-commit": "git restore -W -S dist examples/dist && eslint ."
+    "pre-commit": "echo 'is pre-commit now'"
   }
 }
