@@ -4,7 +4,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const { getPageEntry, getHtmlPluginEntry } = require('./webpack.util')
 const { IS_DEV } = require('./utils')
-const { ENV_CONFIG } = require('./config')
+const { BASE_CONFIG_ENV } = require('./config')
 
 module.exports = {
   entry: getPageEntry,
@@ -105,7 +105,7 @@ module.exports = {
     new webpack.DefinePlugin({
       'process.env': {
         IS_DEV, // 非正式环境都认为开发环境，一般用于vConsole等调试工具的初始化判断，便于非正式环境调试
-        ...ENV_CONFIG,
+        ...BASE_CONFIG_ENV,
       },
     }),
   ],

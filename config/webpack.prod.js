@@ -6,10 +6,6 @@ const base = require('./webpack.config')
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin') // 对CSS进行压缩插件
 const TerserPlugin = require('terser-webpack-plugin')
 
-const { ENVS_CONFIG } = require('./config/index')
-
-console.log(ENVS_CONFIG)
-
 module.exports = merge(base, {
   mode: 'production',
   optimization: {

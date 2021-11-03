@@ -1,13 +1,5 @@
-let ENV_CONFIG = {}
-
-if (process.env.NODE_ENV === 'development') {
-  ENV_CONFIG = require('./env.dev')
-} else if (process.env.NODE_ENV === 'test') {
-  ENV_CONFIG = require('./env.test')
-} else if (process.env.NODE_ENV === 'production') {
-  ENV_CONFIG = require('./env.pord')
-}
+const BASE_CONFIG_ENV = require(`./env.${process.env.BASE_CONFIG_ENV}`)
 
 module.exports = {
-  ENV_CONFIG,
+  BASE_CONFIG_ENV,
 }
