@@ -96,5 +96,11 @@
   "bugs": {
     "url": "https://github.com/iHaroro/react-entry-template/issues"
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "echo 'is run pre-commit now'",
+      "commit-msg": "echo 'is run commit-msg now'"
+    }
+  },
   "homepage": "https://github.com/iHaroro/react-entry-template#readme"
 }
