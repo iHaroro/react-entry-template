@@ -1,13 +1,10 @@
 /**
- * @description 请在这里修改你的开发配置de's
+ * @description 请在这里修改你的开发配置
  */
 const path = require('path')
 const base = require('./webpack.config')
-const webpack = require('webpack')
 const { merge } = require('webpack-merge')
 const WebpackBar = require('webpackbar')
-const devEnvs = require('./config/env.dev')
-const { isDev } = require('./utils')
 
 module.exports = merge(base, {
   mode: 'development',
@@ -15,13 +12,6 @@ module.exports = merge(base, {
   stats: 'errors-only',
   plugins: [
     new WebpackBar(),
-    // 向浏览器环境注入环境变量
-    new webpack.DefinePlugin({
-      'process.env': {
-        IS_DEV: isDev,
-        BASE_API: devEnvs.BASE_API,
-      },
-    }),
   ],
   devServer: {
     // open: ['demo'],

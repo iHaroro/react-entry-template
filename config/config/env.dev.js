@@ -1,3 +1,3 @@
 module.exports = {
-  BASE_API: '"https://test.haroro.com"',
+  BASE_API: '"https://dev.haroro.com"',
 }

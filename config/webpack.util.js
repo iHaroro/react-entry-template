@@ -1,7 +1,7 @@
 const path = require('path')
 const glob = require('glob')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-const { isDev, PAGES_PATH, TEMP_HTML_PATH } = require('./utils')
+const { IS_DEV, PAGES_PATH, TEMP_HTML_PATH } = require('./utils')
 
 // 开发环境需要编译的模块， 空数组则全部遍历编译
 // 取值为src/pages/[name]/...路径中的name
@@ -64,7 +64,7 @@ function getCommonEntryOption (entryFile) {
 // 获取入口配置
 function getPageEntry () {
   let entry = {}
-  if (isDev && devPages.length) { // 开发环境，按需编译
+  if (IS_DEV && devPages.length) { // 开发环境，按需编译
     devPages.forEach(entryName => {
       const entryFile = getEntryFileByType('js', entryName)[0]
       entry[entryName] = getCommonEntryOption(entryFile)
@@ -87,7 +87,7 @@ function getPageEntry () {
 // 获取HTML模板创建
 const getHtmlPluginEntry = () => {
   const htmlPlugins = []
-  if (isDev && devPages.length) { // 开发环境，按需编译
+  if (IS_DEV && devPages.length) { // 开发环境，按需编译
     devPages.forEach(entryName => {
       const entryFile = getEntryFileByType('html', entryName)[0]
       htmlPlugins.push(createHtmlPlugin(entryName, entryFile))

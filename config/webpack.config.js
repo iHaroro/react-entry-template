@@ -1,10 +1,10 @@
-/**
- * @description 请在这里修改你的生产配置
- */
 const path = require('path')
+const webpack = require('webpack')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const { getPageEntry, getHtmlPluginEntry } = require('./webpack.util')
+const { IS_DEV } = require('./utils')
+const { ENV_CONFIG } = require('./config')
 
 module.exports = {
   entry: getPageEntry,
@@ -68,8 +68,8 @@ module.exports = {
             limit: 10000,
             name: 'img/[name].[hash:7].[ext]',
             esModule: false,
-          }
-        }
+          },
+        },
       },
       {
         test: /\.(mp4|webm|ogg|mp3|wav|flac|aac)(\?.*)?$/,
@@ -79,8 +79,8 @@ module.exports = {
             limit: 10000,
             name: 'video/[name].[hash:7].[ext]',
             esModule: false,
-          }
-        }
+          },
+        },
       },
       {
         test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
@@ -90,16 +90,23 @@ module.exports = {
             limit: 10000,
             name: 'font/[name].[hash:7].[ext]',
             esModule: false,
-          }
-        }
-      }
+          },
+        },
+      },
     ],
   },
   plugins: [
     new CleanWebpackPlugin(),
     ...getHtmlPluginEntry(),
+    // 向浏览器环境注入环境变量
     new MiniCssExtractPlugin({
       filename: '[name]/index.[contenthash].css',
+    }),
+    new webpack.DefinePlugin({
+      'process.env': {
+        IS_DEV, // 非正式环境都认为开发环境，一般用于vConsole等调试工具的初始化判断，便于非正式环境调试
+        ...ENV_CONFIG,
+      },
     }),
   ],
   resolve: {
