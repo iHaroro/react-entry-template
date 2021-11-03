@@ -68,8 +68,8 @@ module.exports = {
             limit: 10000,
             name: 'img/[name].[hash:7].[ext]',
             esModule: false,
-          }
-        }
+          },
+        },
       },
       {
         test: /\.(mp4|webm|ogg|mp3|wav|flac|aac)(\?.*)?$/,
@@ -79,8 +79,8 @@ module.exports = {
             limit: 10000,
             name: 'video/[name].[hash:7].[ext]',
             esModule: false,
-          }
-        }
+          },
+        },
       },
       {
         test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
@@ -90,9 +90,9 @@ module.exports = {
             limit: 10000,
             name: 'font/[name].[hash:7].[ext]',
             esModule: false,
-          }
-        }
-      }
+          },
+        },
+      },
     ],
   },
   plugins: [
