@@ -6,8 +6,8 @@ const { IS_DEV, PAGES_PATH, TEMP_HTML_PATH } = require('./utils')
 // 开发环境需要编译的模块， 空数组则全部遍历编译
 // 取值为src/pages/[name]/...路径中的name
 const devPages = []
-// const devPages = ['web', 'wechat']
-// const devPages = ['web', 'wechat', 'tiktok']
+// const devPages = ['demo', 'wechat']
+// const devPages = ['demo', 'wechat', 'tiktok']
 
 // 通用依赖
 const COMMON_VENDORS = ['react', 'react-dom']
