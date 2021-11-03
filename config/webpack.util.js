@@ -24,7 +24,7 @@ const getEntryFileByType = (type, entryName) => glob.sync(`${PAGES_PATH}/${entry
 /**
  * @function 根据URL获取入口名称
  * @param {string} path 路径
- * @returns {string} 人口名称
+ * @returns {string} 入口名称
  **/
 const pathMatchEntryName = path => {
   const match = path.match(/\/src\/pages\/(\S*)\/index\.[\w]+/)
