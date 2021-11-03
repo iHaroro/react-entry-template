@@ -1,5 +1,5 @@
 {
   "hooks": {
-    "pre-commit": "npm run install"
+    "pre-commit": "git restore -W -S dist examples/dist && eslint ."
   }
 }
