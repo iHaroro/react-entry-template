@@ -1,8 +1,18 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
-import DependRequest from '../../components/DependRequest'
+// import DependRequest from '../../components/DependRequest'
 import './index.scss'
+
+const BigList = () => {
+  const list = Array(10).fill({})
+
+  return (<div>
+    <ul>
+      {list.map((item, index) => <li key={index}>{index}</li>)}
+    </ul>
+  </div>)
+}
 
 const My = (props) => {
 
@@ -12,19 +22,20 @@ const My = (props) => {
     <div>
       {
         id
-          ? (<Link to="/my">
+          ? (<Link to='/my'>
             <button>turn to My page</button>
           </Link>)
-          : (<Link to="/my/10086">
+          : (<Link to='/my/10086'>
             <button>turn to id 10086 page</button>
           </Link>)
       }
       <p>My</p>
       {id && <p>id: {id}</p>}
-      <Link to="/">
+      <Link to='/'>
         <button>Home</button>
       </Link>
-      <DependRequest />
+      {/*<DependRequest />*/}
+      <BigList />
     </div>
   )
 }

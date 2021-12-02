@@ -1,5 +1,5 @@
+import 'amfe-flexible'
 import './index.scss'
-import 'lib-flexible'
 import { vConsoleTools } from '@/utils/vConsole'
 import React from 'react'
 import ReactDOM from 'react-dom'
