@@ -11,7 +11,7 @@ const Home = props => {
   const [toggleState, { toggle }] = useToggle(false)
 
   return (
-    <div>
+    <div data-components='HomePageComponents' className='page-content'>
       {/* ROUTER DEMO */}
       <Link to='/my'>
         <button className='btn'>turn to My page</button>

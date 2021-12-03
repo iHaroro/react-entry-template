@@ -1,9 +1,4 @@
 @charset "utf-8";
-html {
-  background-color: #ffffff;
-  color: #000000;
-}
-
 body,
 ul,
 ol,
@@ -44,7 +39,6 @@ code,
 kbd,
 samp {
   line-height: 1.5;
-  font-family: tahoma, arial, "Hiragino Sans GB", simsun, sans-serif
 }
 
 h1,
@@ -60,15 +54,6 @@ textarea,
 button,
 select {
   font-size: 100%
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: tahoma, arial, "Hiragino Sans GB", "微软雅黑", simsun, sans-serif
 }
 
 h1,
@@ -182,24 +167,11 @@ sub {
 }
 
 html {
-  overflow-x: hidden;
-  min-height: 100vh;
-  -webkit-tap-highlight-color: transparent;
-}
-
-body {
-  font-family: -apple-system-font, sans-serif;
-  color: #333333;
   width: 100%;
   min-height: 100vh;
-  -webkit-text-size-adjust: none;
-}
-
-input {
+  color: #333333;
+  background-color: #ffffff;
   font-family: -apple-system-font, sans-serif;
-}
-
-body .van-toast {
-  font-size: 28px !important;
-  line-height: normal;
+  -webkit-text-size-adjust: none;
+  -webkit-tap-highlight-color: transparent;
 }
