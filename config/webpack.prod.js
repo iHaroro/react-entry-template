@@ -19,5 +19,15 @@ module.exports = merge(base, {
         extractComments: false,
       }),
     ],
+    runtimeChunk: {
+      name: 'manifest',
+    },
+    splitChunks: {
+      chunks: 'async',
+      minSize: 30000, // 生成 chunk 的最小体积（以 bytes 为单位）
+      minChunks: 1, // 拆分前必须共享模块的最小 chunks 数
+      maxAsyncRequests: 5, // 按需加载时的最大并行请求数
+      maxInitialRequests: 3, // 入口点的最大并行请求数
+    },
   },
 })
