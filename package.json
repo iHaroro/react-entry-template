@@ -19,12 +19,12 @@
     "模板"
   ],
   "scripts": {
-    "dev": "cross-env NODE_ENV=development BASE_CONFIG_ENV=dev webpack serve --config config/webpack.dev.js",
-    "dev:test": "cross-env NODE_ENV=development BASE_CONFIG_ENV=test webpack serve --config config/webpack.dev.js",
-    "dev:prod": "cross-env NODE_ENV=development BASE_CONFIG_ENV=prod webpack serve --config config/webpack.dev.js",
-    "build:dev": "cross-env NODE_ENV=development BASE_CONFIG_ENV=dev webpack --config config/webpack.prod.js",
-    "build:test": "cross-env NODE_ENV=development BASE_CONFIG_ENV=test webpack --config config/webpack.prod.js",
-    "build:prod": "cross-env NODE_ENV=production BASE_CONFIG_ENV=prod webpack --config config/webpack.prod.js"
+    "dev": "cross-env BASE_CONFIG_ENV=dev webpack serve --config config/webpack.dev.js",
+    "dev:test": "cross-env BASE_CONFIG_ENV=test webpack serve --config config/webpack.dev.js",
+    "dev:prod": "cross-env BASE_CONFIG_ENV=prod webpack serve --config config/webpack.dev.js",
+    "build:dev": "cross-env BASE_CONFIG_ENV=dev webpack --config config/webpack.prod.js",
+    "build:test": "cross-env BASE_CONFIG_ENV=test webpack --config config/webpack.prod.js",
+    "build:prod": "cross-env BASE_CONFIG_ENV=prod webpack --config config/webpack.prod.js"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",
