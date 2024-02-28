@@ -4,7 +4,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const CopyPlugin = require('copy-webpack-plugin')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const { getPageEntry, getHtmlPluginEntry } = require('./utils/entryUtils')
-const { IS_DEV } = require('./config/constants')
+const { IS_DEV } = require('./utils/constants')
 const { BASE_CONFIG_ENV } = require('./config')
 
 module.exports = {

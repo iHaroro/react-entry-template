@@ -1,7 +1,7 @@
 const path = require('path')
 const glob = require('glob')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-const { IS_DEV, PAGES_PATH, TEMP_HTML_PATH, TEMP_FAVICON_PATH } = require('../config/constants')
+const { IS_DEV, PAGES_PATH, TEMP_HTML_PATH, TEMP_FAVICON_PATH } = require('./constants')
 
 // 开发环境需要编译的模块， 空数组则全部遍历编译
 // 取值为src/pages/[name]/...路径中的name
