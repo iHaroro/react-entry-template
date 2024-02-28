@@ -1,6 +1,10 @@
 .page-content[data-components="HomePageComponents"] {
-  .bg-red {
-    background: red;
+  .px-2-rem-item {
+    margin-bottom: 5px;
+  }
+
+  .bg-gray {
+    background: gray;
   }
 
   .w-375 {
@@ -21,12 +25,6 @@
 
   .m-r-10 {
     margin-right: 10px;
-  }
-
-  .btn {
-    padding: 5px 10px;
-    border-radius: 16px;
-    background: gray;
   }
 
 }
