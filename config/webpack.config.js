@@ -1,9 +1,10 @@
 const path = require('path')
 const webpack = require('webpack')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const CopyPlugin = require('copy-webpack-plugin')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
-const { getPageEntry, getHtmlPluginEntry } = require('./webpack.util')
-const { IS_DEV } = require('./utils')
+const { getPageEntry, getHtmlPluginEntry } = require('./utils/entryUtils')
+const { IS_DEV } = require('./config/constants')
 const { BASE_CONFIG_ENV } = require('./config')
 
 module.exports = {
@@ -107,6 +108,16 @@ module.exports = {
         IS_DEV, // 非正式环境都认为开发环境，一般用于vConsole等调试工具的初始化判断，便于非正式环境调试
         ...BASE_CONFIG_ENV,
       },
+    }),
+    new CopyPlugin({
+      patterns: [
+        {
+          // For github pages
+          from: path.resolve(__dirname, '../README.md'),
+          to: path.resolve(__dirname, '../dist/README.md'),
+          force: true,
+        },
+      ],
     }),
   ],
   resolve: {

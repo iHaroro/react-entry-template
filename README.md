@@ -36,12 +36,13 @@ yarn
 yarn run dev
 ```
 
-项目启动访问地址：`localhost:8080/[moduleName].html/#/[route]`
+~~项目启动访问地址：`localhost:8080/[moduleName].html/#/[route]`~~
+新版本启动访问地址：`localhost:8080/[moduleName]/#/[route]`
 
-|字段|描述|
-|:---:|:---:|
-|moduleName|项目模块名，也就是项目 src/pages/xxx，xxx位置对于moduleName|
-|route|项目模块对于的路由|
+|字段 | 描述|
+|:---:|:----|
+|moduleName | 项目模块名，也就是项目 src/pages/xxx，xxx位置对于moduleName|
+|route | 项目模块对于的路由|
 
 ## redux 采用 ducks 模式
 
