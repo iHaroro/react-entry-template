@@ -1,11 +1,12 @@
-import 'amfe-flexible'
-import './index.scss'
-import { vConsoleTools } from '@/utils/vConsole'
+import { Provider } from 'react-redux'
 import React from 'react'
 import ReactDOM from 'react-dom'
-import App from './App'
-import { Provider } from 'react-redux'
 import { store } from '@/store'
+import { vConsoleTools } from '@utils/vConsole'
+import App from './App'
+
+import './index.scss'
+import 'amfe-flexible'
 
 vConsoleTools()
 

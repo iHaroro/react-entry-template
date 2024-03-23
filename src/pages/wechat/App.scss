@@ -1,6 +1,10 @@
+$first-color: #ec4c46;
+$second-color: #132549;
+
 .box {
   height: 100vh;
-  background: linear-gradient(45deg, #000 0, #000 50%, #fff 50%);
+  //background: linear-gradient(-15deg, $second-color 0, $second-color 60%, $first-color 60%);
+  background: linear-gradient(-45deg, $second-color 0, $second-color 50%, $first-color 50%);
 
   &::before {
     content: "WECHAT PROJECT PAGE!";
@@ -8,7 +12,7 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    color: #fff;
+    color: #ffffff;
     mix-blend-mode: difference;
     animation: move 3s infinite linear alternate;
   }
@@ -16,9 +20,9 @@
 
 @keyframes move {
   0% {
-    transform: translate(-30%, -50%);
+    transform: translateX(-30) translateY(-50%);
   }
   100% {
-    transform: translate(-70%, -50%);
+    transform: translateX(-70%) translateY(-50%);
   }
 }

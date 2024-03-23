@@ -29,8 +29,8 @@ module.exports = merge(base, {
       },
     },
     static: { // 静态资源配置
-      directory: path.resolve(__dirname, '../', 'public'), // 静态资源目录
-      publicPath: path.resolve(__dirname, '../', 'public'), // 静态资源公共路径
+      directory: path.resolve(__dirname, './', 'public'), // 静态资源目录
+      publicPath: path.resolve(__dirname, './', 'public'), // 静态资源公共路径
     },
     // proxy: {
     //   '/api': {

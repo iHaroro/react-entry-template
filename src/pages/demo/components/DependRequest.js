@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { demo1ApiServer, demo2ApiServer, demo3ApiServer, demo4ApiServer } from '@/api/demo'
+import { demo1ApiServer, demo2ApiServer, demo3ApiServer, demo4ApiServer } from '@api/demo'
 
 export default function DependRequest () {
   const [userInfo, setUserInfo] = useState(null)

@@ -1,5 +1,5 @@
 import { lazy } from 'react'
-import { Page404 } from '@/components/ErrorPages'
+import { Page404 } from '@components/ErrorPages'
 
 export const routes = [
   {

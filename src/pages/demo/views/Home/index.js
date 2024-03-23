@@ -3,13 +3,16 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { Toast } from 'zarm'
-import { plus, reduce } from '@/store/modules/counter'
+import { plus, reduce } from '@store/modules/counter'
 import { useToggle, useUpdate, useMount, useUnmount, useUpdateEffect } from 'ahooks'
+import DependRequest from '@demo/components/DependRequest'
 import './index.scss'
 import 'highlight.js/styles/atom-one-dark.css'
 
 const Home = props => {
   const [toggleState, { toggle }] = useToggle(false)
+
+  console.log(navigator.userAgent)
 
   return (
     <div data-components="HomePageComponents" className="page-content">
@@ -33,6 +36,8 @@ const Home = props => {
       <div className="px-2-rem-item bg-gray w-375">375px</div>
       <div className="px-2-rem-item bg-gray w-750">750px</div>
       <div className="px-2-rem-item bg-gray w-100 h-100">100*100</div>
+
+      <DependRequest />
     </div>
   )
 }
