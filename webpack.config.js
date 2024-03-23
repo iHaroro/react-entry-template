@@ -7,6 +7,7 @@ const { getPageEntry, getHtmlPluginEntry } = require('./config/utils/entryUtils'
 const { IS_DEV } = require('./config/utils/constants')
 const { BASE_CONFIG_ENV } = require('./config/config')
 
+
 module.exports = {
   entry: getPageEntry,
   output: {
