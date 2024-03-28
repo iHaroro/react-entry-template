@@ -8,6 +8,7 @@ export let userInfo = {
 
 export const getTokenFormApp = async () => {
   return new Promise(resolve => {
+
     // 注册回调协议
     AppRegisterSync(HANDLER_CONFIG.GET_TOKEN_HANDLER).then(token => {
       console.log('获取原生Token：', token)
