@@ -5,7 +5,7 @@ const CopyPlugin = require('copy-webpack-plugin')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const { getPageEntry, getHtmlPluginEntry } = require('./config/utils/entryUtils')
 const { IS_DEV } = require('./config/utils/constants')
-const { BASE_CONFIG_ENV } = require('./config/config');
+const { BASE_CONFIG_ENV } = require('./config/config')
 
 
 module.exports = {
